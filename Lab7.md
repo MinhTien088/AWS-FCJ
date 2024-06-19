@@ -1,7 +1,7 @@
 # Lab 7
 - [x] 1. Tạo Budget
 
-![](Data/Lab7/Screenshot 2024-06-20 000023.png)
+![](https://github.com/MinhTien088/AWS-FCJ/blob/1c83ea3d977f8bfcf855e34c92816ea39e40dbe8/Data/Lab7/Screenshot%202024-06-19%20235202.png)
 
 - [x] 2. Tạo Cost Budget
 
