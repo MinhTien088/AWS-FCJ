@@ -63,7 +63,7 @@ Các dịch vụ AWS hoạt động tại Edge Locations (POP – Points of Pres
 
 Hiện ở VN có 2 Edge Locations: 1 ở HCM, 1 ở HN.
 
-# 5. Công cụ quản lý AWS Services
+## 5. Công cụ quản lý AWS Services
 - Root login: là tài khoản đăng ký AWS Account đầu tiên, gồm email, username, pasword. Cực kỳ quan trọng, thông thường sẽ hạn chế sử dụng
 - IAM login: IAM user không là một AWS Account hoàn chỉnh, chỉ là một user con giúp chúng ta truy xuất, quản lý các tài nguyên của AWS.
 - Account ID: chuỗi 12 chữ số
