@@ -1,4 +1,4 @@
-[TOCM]
+[TOC]
 
 # Module 1
 
