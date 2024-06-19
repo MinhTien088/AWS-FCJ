@@ -46,31 +46,37 @@ AWS khuyến nghị nên triển khai ứng dụng tối thiểu trên 2 AZ.
 > Đi thi lấy chứng chỉ thì sẽ có câu này, nhưng trên thực tế, tuỳ trường hợp thì không cần triển khai trên 2 AZ, triển khai trên 1 AZ - sau đó backup lại.
 
 ### Region (Khu vực)
-Một AWS Region bao gồm tối thiểu 3 AZ. Hiện tại, theo trang web của AWS, có 33 Region với tổng cộng 105 AZ, và dự kiến sẽ bổ sung thêm 6 Region và 18 AZ trên toàn cầu.
-Các Region được kết nối với nhau bởi mạng backbone của AWS.
-Mặc định dữ liệu và dịch vụ ở các Region độc lập với nhau. (Trừ một số dịch vụ ở quy mô Global). VD: khách hàng ở VN thì nên chọn Region gần đó (Singapore) để tối ưu độ trễ. Có một số dịch vụ đặc thù (dịch vụ mới, dịch vụ đang phát triển) thì sẽ bị hạn chế về Region.
+Một AWS Region bao gồm tối thiểu **3 AZ**. 
+Hiện tại, theo [trang web](https://aws.amazon.com/vi/about-aws/global-infrastructure/) của AWS, có:
++ 33 Region
++ 105 AZ
++ và dự kiến sẽ bổ sung  6 Region và 18 AZ trên toàn cầu.
+
+Các Region được kết nối với nhau bởi mạng *backbone* của AWS.
+Mặc định dữ liệu và dịch vụ ở các Region **độc lập với nhau**. (Trừ một số dịch vụ ở quy mô Global). 
+VD: khách hàng ở VN thì nên chọn Region gần đó (Singapore) để tối ưu độ trễ. Có một số dịch vụ đặc thù (dịch vụ mới, dịch vụ đang phát triển) thì sẽ bị hạn chế về Region.
 > Có thể thấy nguyên tắt Customer Obsession và văn hoá của AWS ở đây:
-Hạ tầng mở lâu -> Khách hàng nhiều -> Mức sử dụng cao -> Giá càng rẻ.
-VD: Region ở Mỹ sẽ rẻ hơn Region ở Sing…
-Vậy, nếu chạy test, có thể chọn các region rẻ để tối ưu chi phí
+>Hạ tầng mở lâu -> Khách hàng nhiều -> Mức sử dụng cao -> Giá càng rẻ.
+>VD: Region ở Mỹ sẽ rẻ hơn Region ở Sing…
+>Vậy, nếu chạy test, có thể chọn các region rẻ để tối ưu chi phí
 
 ### Edge Locations
 Là mạng lưới data center của AWS được thiết kế để cung cấp dịch vụ với độ trễ thấp nhất có thể.
-Các dịch vụ AWS hoạt động tại Edge Locations (POP – Points of Present) bao gồm:
-+ CloudFront (CDN – Content Delivery Network) giúp caching dữ liệu người dùng duyệt web. 
-+ Web Application Firewall (WAF) là một dịch vụ firewall layer 7.
-+ Route 53 (DNS Service) – có thể tạo domain cho ứng dụng web.
+Các dịch vụ AWS hoạt động tại **Edge Locations (POP – Points of Present)** bao gồm:
++ **CloudFront (CDN – Content Delivery Network)** giúp caching dữ liệu người dùng duyệt web. 
++ **Web Application Firewall (WAF)** là một dịch vụ firewall layer 7.
++ **Route 53 (DNS Service)** – có thể tạo domain cho ứng dụng web.
 
-Hiện ở VN có 2 Edge Locations: 1 ở HCM, 1 ở HN.
+> Hiện ở VN có 2 Edge Locations: 1 ở HCM, 1 ở HN.
 
-## 5. Công cụ quản lý AWS Services
-- Root login: là tài khoản đăng ký AWS Account đầu tiên, gồm email, username, pasword. Cực kỳ quan trọng, thông thường sẽ hạn chế sử dụng
-- IAM login: IAM user không là một AWS Account hoàn chỉnh, chỉ là một user con giúp chúng ta truy xuất, quản lý các tài nguyên của AWS.
-- Account ID: chuỗi 12 chữ số
-- Service Search: tìm kiếm các dịch vụ, mỗi một dịch vụ sẽ có trang management riêng cho phép sử dụng các tính năng của dịch vụ đó.
-- Support Center: tạo support case để yêu cầu hỗ trợ từ đội ngũ của AWS.
-- AWS Command Line Interface (CLI): một công cụ mã nguồn mở cho phép tương tác với các dịch vụ AWS bằng cách sử dụng các câu lệnh; cho phép chạy các lệnh triển khai chức năng tương đương với chức năng được cung cấp bởi AWS Management Console.
-- AWS SDK: đơn giản hoá việc sử dụng AWS services cho ứng dụng bằng cách cung cấp một bộ thư viện nhất quán và quen thuộc cho team dev.
+# 5. Công cụ quản lý AWS Services
+- **Root login**: là tài khoản đăng ký AWS Account đầu tiên, gồm email, username, pasword. Cực kỳ quan trọng, thông thường sẽ hạn chế sử dụng
+- **IAM login**: IAM user không là một AWS Account hoàn chỉnh, chỉ là một user con giúp chúng ta truy xuất, quản lý các tài nguyên của AWS.
+- **Account ID**: chuỗi 12 chữ số
+- **Service Search**: tìm kiếm các dịch vụ, mỗi một dịch vụ sẽ có trang management riêng cho phép sử dụng các tính năng của dịch vụ đó.
+- **Support Center**: tạo support case để yêu cầu hỗ trợ từ đội ngũ của AWS.
+- **AWS Command Line Interface (CLI)**: một công cụ mã nguồn mở cho phép tương tác với các dịch vụ AWS bằng cách sử dụng các câu lệnh; cho phép chạy các lệnh triển khai chức năng tương đương với chức năng được cung cấp bởi AWS Management Console.
+- **AWS SDK**: đơn giản hoá việc sử dụng AWS services cho ứng dụng bằng cách cung cấp một bộ thư viện nhất quán và quen thuộc cho team dev.
 	- AWS SDK cung cấp hỗ trợ cho việc quản lý vòng đời của API tới AWS Services như manage credentials – retry – data marshalling – serialization – deserialization.
 
 ![](Data/Module1/Picture2.png)
